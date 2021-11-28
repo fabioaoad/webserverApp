@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const hbs = require('hbs');
 
+
+const port = process.env.PORT || 3000;
+
 //midleware
 app.use( express.static( __dirname + '/public' ) );
 
@@ -22,6 +25,6 @@ app.get('/about', (req, res) => {
         anio: new Date().getFullYear()
     });
 });
-app.listen(3000, () => {
-    console.log('Escuchando peticiones en el puerto 3000');
+app.listen(port, () => {
+    console.log(`Escuchando peticiones en el puerto ${ port }`);
 });
